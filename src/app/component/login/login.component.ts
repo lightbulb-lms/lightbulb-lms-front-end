@@ -10,7 +10,7 @@ import * as OktaSignIn from '@okta/okta-signin-widget';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  signIn;
+  oktaAuthService;
   widget = new OktaSignIn({
     baseUrl: 'https://dev-241119.okta.com',
     authParams: {
@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   });
 
   constructor(oktaAuth: OktaAuthService, router: Router) {
-    this.signIn = oktaAuth;
+    this.oktaAuthService = oktaAuth;
 
     // Show the widget when prompted, otherwise remove it from the DOM.
     router.events.forEach(event => {
@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
       },
       (res) => {
         if (res.status === 'SUCCESS') {
-          this.signIn.loginRedirect('/', {sessionToken: res.session.token});
+          this.oktaAuthService.loginRedirect('/', {sessionToken: res.session.token});
           // Hide the widget
           this.widget.hide();
         }
