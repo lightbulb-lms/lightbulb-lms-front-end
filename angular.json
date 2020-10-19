@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lighthouse-lms-front-end": {
+    "lightbulb-lms-front-end": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/lighthouse-lms-front-end",
+            "outputPath": "dist/lightbulb-lms-front-end",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "lighthouse-lms-front-end:build"
+            "browserTarget": "lightbulb-lms-front-end:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "lighthouse-lms-front-end:build:production"
+              "browserTarget": "lightbulb-lms-front-end:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lighthouse-lms-front-end:build"
+            "browserTarget": "lightbulb-lms-front-end:build"
           }
         },
         "test": {
@@ -110,15 +110,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "lighthouse-lms-front-end:serve"
+            "devServerTarget": "lightbulb-lms-front-end:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "lighthouse-lms-front-end:serve:production"
+              "devServerTarget": "lightbulb-lms-front-end:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "lighthouse-lms-front-end"
+  "defaultProject": "lightbulb-lms-front-end"
 }

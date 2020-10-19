@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('lighthouse-lms-front-end app is running!');
+    expect(page.getTitleText()).toEqual('lightbulb-lms-front-end app is running!');
   });
 
   afterEach(async () => {
