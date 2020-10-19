@@ -3,7 +3,8 @@ import {OktaAuthService} from '@okta/okta-angular';
 
 @Component({
   selector: 'app-secure',
-  template: `{{message}}`
+  templateUrl: './protected.component.html',
+  styleUrls: ['./protected.component.css']
 })
 export class ProtectedComponent {
   message;

@@ -6,10 +6,8 @@ import * as OktaSignIn from '@okta/okta-signin-widget';
 
 @Component({
   selector: 'app-secure',
-  template: `
-    <!-- Container to inject the Sign-In Widget -->
-    <div id="okta-signin-container"></div>
-  `
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
   signIn;
