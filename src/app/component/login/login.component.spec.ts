@@ -1,16 +1,21 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { LoginComponent } from './login.component';
+import {LoginComponent} from './login.component';
+import {OktaAuthService} from '@okta/okta-angular';
+import {RouterTestingModule} from '@angular/router/testing';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
   let fixture: ComponentFixture<LoginComponent>;
+  const oktaAuthServiceStub: Partial<OktaAuthService> = {};
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginComponent ]
+      imports: [RouterTestingModule],
+      declarations: [LoginComponent],
+      providers: [{provide: OktaAuthService, useValue: oktaAuthServiceStub}],
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
