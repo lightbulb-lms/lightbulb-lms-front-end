@@ -7,7 +7,7 @@ import {OktaAuthService} from '@okta/okta-angular';
   styleUrls: ['./protected.component.css']
 })
 export class ProtectedComponent {
-  message;
+  message: string;
 
   constructor(oktaAuthService: OktaAuthService) {
     oktaAuthService.getUser().then(
