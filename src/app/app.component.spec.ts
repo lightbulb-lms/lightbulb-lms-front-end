@@ -1,8 +1,13 @@
-import { TestBed } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import {TestBed} from '@angular/core/testing';
+import {RouterTestingModule} from '@angular/router/testing';
+import {AppComponent} from './app.component';
+import {OktaAuthService} from '@okta/okta-angular';
+import {of} from 'rxjs';
 
 describe('AppComponent', () => {
+  const oktaAuthServiceStub: Partial<OktaAuthService> = {
+    $authenticationState: of(true)
+  };
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -11,6 +16,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [{provide: OktaAuthService, useValue: oktaAuthServiceStub}],
     }).compileComponents();
   });
 
@@ -20,16 +26,4 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'lighthouse-lms-front-end'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('lighthouse-lms-front-end');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('lighthouse-lms-front-end app is running!');
-  });
 });
