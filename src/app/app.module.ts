@@ -10,6 +10,7 @@ import {AppComponent} from './app.component';
 import {ProtectedComponent} from './component/protected/protected.component';
 import {LoginComponent} from './component/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
+import { HeaderComponent } from './component/header/header.component';
 
 // Define config parameters for Okta
 const config: OktaConfig = {
@@ -24,7 +25,8 @@ const config: OktaConfig = {
   declarations: [
     AppComponent,
     LoginComponent,
-    ProtectedComponent
+    ProtectedComponent,
+    HeaderComponent
   ],
   imports: [
     AppRoutingModule,
