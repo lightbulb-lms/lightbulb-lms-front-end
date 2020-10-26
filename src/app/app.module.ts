@@ -11,6 +11,11 @@ import {ProtectedComponent} from './component/protected/protected.component';
 import {LoginComponent} from './component/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import { HeaderComponent } from './component/header/header.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { HomeComponent } from './component/home/home.component';
+import { StudentHomePageComponent } from './component/student-home-page/student-home-page.component';
+import { TeacherHomePageComponent } from './component/teacher-home-page/teacher-home-page.component';
+import { NavigationComponent } from './component/navigation/navigation.component';
 
 // Define config parameters for Okta
 const config: OktaConfig = {
@@ -26,7 +31,12 @@ const config: OktaConfig = {
     AppComponent,
     LoginComponent,
     ProtectedComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent,
+    StudentHomePageComponent,
+    TeacherHomePageComponent,
+    NavigationComponent
   ],
   imports: [
     AppRoutingModule,

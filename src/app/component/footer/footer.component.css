@@ -83,3 +83,27 @@ main {
   margin-bottom: 10px;
 }
 
+aside {
+  background-color: #FFA649;
+  width: 270px;
+  float: right;
+  padding: 20px;
+  margin-top: 10px;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 16px;
+  letter-spacing: -1.8px;
+  word-spacing: 0.2px;
+  color: black;
+  font-weight: 700;
+  text-decoration: none solid rgb(68, 68, 68);
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: none;
+}
+
+footer {
+  clear: both;
+  background-color: #C80D0B;
+  color: white;
+  padding: 5px 20px;
+}

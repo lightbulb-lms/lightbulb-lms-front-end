@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Lightbulb</title>
+
+
+
+</head>
+<body>
+
+<header class="banner" >
+  <div>
+    <a ng-href="" id= "logo"><h1>Lightbulb</h1></a>
+
+    <div class="div1" >
+
+      <a *ngIf="!isAuthenticated" routerLink="/login">
+        Signup
+      </a>
+      <a *ngIf="isAuthenticated" (click)="logout()">
+        Signin
+      </a>
+    </div>
+
+  </div>
+
+</header>
+<nav>
+  <ul>
+    <li><a ng-href="">Home</a></li>
+
+
+  </ul>
+</nav>
+
+<main>
+  <section>
+    <h2>Some introduction here</h2>
+
+
+  </section>
+
+</main>
+<footer>
+  <ul>
+    <li><a ng-href="">About</a></li>
+    <li><a ng-href="">Contact</a></li>
+  </ul>
+</footer>
+
+</body>
+</html>
+

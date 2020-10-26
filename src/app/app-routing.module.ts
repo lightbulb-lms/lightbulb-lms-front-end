@@ -3,11 +3,15 @@ import {Routes, RouterModule, Router} from '@angular/router';
 import {OktaAuthGuard, OktaCallbackComponent} from '@okta/okta-angular';
 import {LoginComponent} from './component/login/login.component';
 import {ProtectedComponent} from './component/protected/protected.component';
+import {HomeComponent} from './component/home/home.component';
+
 
 const routes: Routes = [
   {
-    path: 'login/callback',
-    component: OktaCallbackComponent
+    // path: 'login/callback',
+    // component: OktaCallbackComponent
+    path: '',
+    component: HomeComponent
   },
   {
     path: 'login',
