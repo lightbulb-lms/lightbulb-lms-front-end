@@ -15,7 +15,7 @@ import { FooterComponent } from './component/footer/footer.component';
 import { HomeComponent } from './component/home/home.component';
 import { StudentHomePageComponent } from './component/student-home-page/student-home-page.component';
 import { TeacherHomePageComponent } from './component/teacher-home-page/teacher-home-page.component';
-import { NavigationComponent } from './component/navigation/navigation.component';
+//import { NavigationComponent } from './component/navigation/navigation.component';
 
 // Define config parameters for Okta
 const config: OktaConfig = {
@@ -35,8 +35,10 @@ const config: OktaConfig = {
     FooterComponent,
     HomeComponent,
     StudentHomePageComponent,
-    TeacherHomePageComponent,
+    TeacherHomePageComponent
+    /*
     NavigationComponent
+    */
   ],
   imports: [
     AppRoutingModule,
