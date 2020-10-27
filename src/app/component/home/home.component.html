@@ -1,13 +1,3 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Lightbulb</title>
-
-
-
-</head>
-<body>
-
 <header class="banner" >
   <div>
     <a ng-href="" id= "logo"><h1>Lightbulb</h1></a>
@@ -15,10 +5,10 @@
     <div class="div1" >
 
       <a *ngIf="!isAuthenticated" routerLink="/login">
-        Signup
+        Login
       </a>
       <a *ngIf="isAuthenticated" (click)="logout()">
-        Signin
+        Logout
       </a>
     </div>
 
@@ -47,7 +37,3 @@
     <li><a ng-href="">Contact</a></li>
   </ul>
 </footer>
-
-</body>
-</html>
-
