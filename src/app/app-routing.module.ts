@@ -4,6 +4,9 @@ import {OktaAuthGuard, OktaCallbackComponent} from '@okta/okta-angular';
 import {LoginComponent} from './component/login/login.component';
 import {ProtectedComponent} from './component/protected/protected.component';
 import {HomeComponent} from './component/home/home.component';
+import {StudentHomePageComponent} from "./component/student-home-page/student-home-page.component";
+import {TeacherHomePageComponent} from "./component/teacher-home-page/teacher-home-page.component";
+import {AdministratorHomePageComponent} from "./component/administrator-home-page/administrator-home-page.component";
 
 
 const routes: Routes = [
@@ -19,6 +22,7 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
+
   {
     path: 'protected',
     component: ProtectedComponent,
@@ -26,6 +30,18 @@ const routes: Routes = [
     data: {
       onAuthRequired
     }
+  },
+  {
+    path: 'student-login',
+    component: StudentHomePageComponent
+  },
+  {
+    path: 'teacher-login',
+    component: TeacherHomePageComponent
+  },
+  {
+    path: 'admin-login',
+    component: AdministratorHomePageComponent
   }
 ];
 

@@ -135,9 +135,9 @@ aside {
   text-transform: none;
 }
 
-footer {
-  clear: both;
-  background-color: #7C7A9D;
-  color: white;
-  padding: 5px 20px;
-}
+/*w3-container {*/
+/*  clear: both;*/
+/*  background-color: w3-teal;*/
+/*  color: white;*/
+/*  padding: 5px 20px;*/
+/*}*/

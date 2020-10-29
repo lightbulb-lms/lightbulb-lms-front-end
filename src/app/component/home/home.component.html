@@ -1,39 +1,159 @@
-<header class="banner" >
-  <div>
-    <a ng-href="" id= "logo"><h1>Lightbulb</h1></a>
+<link rel="stylesheet" type="text/css" href="/style.css">
 
-    <div class="div1" >
-
-      <a *ngIf="!isAuthenticated" routerLink="/login">
-        Login
-      </a>
-      <a *ngIf="isAuthenticated" (click)="logout()">
-        Logout
-      </a>
-    </div>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a routerLink = "/admin-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Admin Login</a>
+    <a routerLink = "/teacher-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Teacher Login</a>
+    <a routerLink="/student-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Student Login</a>
 
   </div>
 
+</div>
+
+<!-- Header -->
+<header class="w3-container w3-sand w3-center" style="padding:128px 16px">
+  <h1 class="w3-margin w3-jumbo">Lightbulb</h1>
+  <p class="w3-xlarge">Learning Management System</p>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
 </header>
-<nav>
-  <ul>
-    <li><a ng-href="">Home</a></li>
 
+<!-- First Grid -->
+<div class="w3-row-padding w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-twothird">
+      <h1>Home</h1>
+      <h5 class="w3-padding-32">Home</h5>
 
-  </ul>
-</nav>
+      <p class="w3-text-grey">Hold on, to me as we go
+        As we roll down this unfamiliar road
+        And although this wave is stringing us along
+        Just know you're not alone
+        'Cause I'm going to make this place your home
+        Settle down, it'll all be clear
+        Don't pay no mind to the demons
+        They fill you with fear
+        The trouble it might drag you down
+        If you get lost, you can always be found
+        Just know you're not alone
+        'Cause I'm going to make this place your home
+        Settle down, it'll all be clear
+        Don't pay no mind to the demons
+        They fill you with fear
+        The trouble it might drag you down
+        If you get lost, you can always be found
+        Just know you're not alone
+        'Cause I'm going to make this place your home</p>
+    </div>
 
-<main>
-  <section>
-    <h2>Some introduction here</h2>
+    <div class="w3-third w3-center">
+      <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+    </div>
+  </div>
+</div>
 
+<!-- Second Grid -->
+<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+  <div class="w3-content">
+    <div class="w3-third w3-center">
+      <i class="fa fa-coffee w3-padding-64 w3-text-red w3-margin-right"></i>
+    </div>
 
-  </section>
+    <div class="w3-twothird">
+      <h1>Home</h1>
+      <h5 class="w3-padding-32">Home</h5>
 
-</main>
-<footer>
-  <ul>
-    <li><a ng-href="">About</a></li>
-    <li><a ng-href="">Contact</a></li>
-  </ul>
+      <p class="w3-text-grey">Hold on, to me as we go
+        As we roll down this unfamiliar road
+        And although this wave is stringing us along
+        Just know you're not alone
+        'Cause I'm going to make this place your home
+        Settle down, it'll all be clear
+        Don't pay no mind to the demons
+        They fill you with fear
+        The trouble it might drag you down
+        If you get lost, you can always be found
+        Just know you're not alone
+        'Cause I'm going to make this place your home
+        Settle down, it'll all be clear
+        Don't pay no mind to the demons
+        They fill you with fear
+        The trouble it might drag you down
+        If you get lost, you can always be found
+        Just know you're not alone
+        'Cause I'm going to make this place your home</p>
+    </div>
+  </div>
+</div>
+
+<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+  <h1 class="w3-margin w3-xlarge">Quote of the day: live life</h1>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-64 w3-khaki w3-center w3-opacity">
+  <div class="w3-xlarge w3-padding-32">
+    <p><a ng-href="">About Us</a> </p>
+    <p><a ng-href="">Contact</a> </p>
+
+  </div>
+
 </footer>
+
+<!--<script>-->
+<!--  // Used to toggle the menu on small screens when clicking on the menu button-->
+<!--  function myFunction() {-->
+<!--    var x = document.getElementById("navDemo");-->
+<!--    if (x.className.indexOf("w3-show") == -1) {-->
+<!--      x.className += " w3-show";-->
+<!--    } else {-->
+<!--      x.className = x.className.replace(" w3-show", "");-->
+<!--    }-->
+<!--  }-->
+<!--</script>-->
+
+
+
+
+<!--<header class="banner" >-->
+<!--  <div>-->
+<!--    <a ng-href="" id= "logo"><h1>Lightbulb</h1></a>-->
+
+
+<!--    <div class="div1" >-->
+
+<!--      <a *ngIf="!isAuthenticated" routerLink="/login">-->
+<!--        Login-->
+<!--      </a>-->
+<!--      <a *ngIf="isAuthenticated" (click)="logout()">-->
+<!--        Logout-->
+<!--      </a>-->
+<!--    </div>-->
+
+<!--  </div>-->
+
+<!--</header>-->
+<!--<nav>-->
+<!--  <ul>-->
+<!--    <li><a ng-href="">Home</a></li>-->
+
+
+<!--  </ul>-->
+<!--</nav>-->
+
+<!--<main>-->
+<!--  <section>-->
+<!--    <h2>Some introduction here</h2>-->
+<!--    <app-student-home-page *ngIf="isStudent"></app-student-home-page>-->
+
+<!--  </section>-->
+
+<!--</main>-->
+<!--<footer class = "w3-container w3-teal w3-center w3-margin-top">-->
+<!--  <ul>-->
+<!--    <li><a ng-href="">About</a></li>-->
+<!--    <li><a ng-href="">Contact</a></li>-->
+<!--  </ul>-->
+<!--</footer>-->
