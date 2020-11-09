@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import {NgModule} from '@angular/core';
 import {Routes, RouterModule, Router} from '@angular/router';
 import {OktaAuthGuard, OktaCallbackComponent} from '@okta/okta-angular';
 import {LoginComponent} from './component/login/login.component';
@@ -23,7 +23,6 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent
   },
-
   {
     path: 'protected',
     component: ProtectedComponent,
@@ -61,4 +60,5 @@ export function onAuthRequired(oktaAuth, injector): void {
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
