@@ -1,0 +1,117 @@
+<link rel="stylesheet" type="text/css" ng-href="/style.css">
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a routerLink="" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Logout</a>
+
+  </div>
+  <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:160px;" id="mySidebar"><br>
+    <div class="w3-container w3-row">
+
+      <div class="w3-col s8 w3-bar">
+        <span><strong>Norm</strong></span><br>
+
+      </div>
+    </div>
+    <hr>
+    <div class="w3-container">
+
+    </div>
+    <div class="w3-bar-block">
+      <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Courses</a>
+
+    </div>
+  </nav>
+  <!-- Page Container -->
+  <div class="w3-content w3-margin-top" style="max-width:1400px;">
+
+    <!-- The Grid -->
+    <div class="w3-row-padding">
+
+      <!-- Left Column -->
+      <div class="w3-third">
+
+        <div class="w3-white w3-text-grey w3-card-4">
+          <!-- <div class="w3-display-container">
+            <h1>Norm</h1>
+            <div class="w3-display-bottomleft w3-container w3-text-black">
+
+            </div>
+          </div> -->
+          <div class="w3-container">
+            <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Student</p>
+            <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Charlotte, NC</p>
+            <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>normtheniner@uncc.edu</p>
+            <p><i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i>1224435534</p>
+            <hr>
+
+            <p class="w3-large"><b><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i>Courses</b></p>
+            <p><a ng-href="">Course 1</a></p>
+
+            <p><a ng-href="">Course 2</a></p>
+
+            <p><a ng-href="">Course 3</a></p>
+
+
+
+
+          </div>
+        </div><br>
+
+        <!-- End Left Column -->
+      </div>
+
+      <!-- Right Column -->
+      <div class="w3-twothird">
+        <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Course name</h2>
+        <div class="w3-container w3-card w3-white w3-margin-bottom">
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-suitcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Main Module</h2>
+          <div class="w3-container">
+            <li><a ng-href="">Syllabus</a></li>
+          </div>
+          <div class="w3-container">
+            <li><a ng-href="">TA Information</a></li>
+          </div>
+          <div class="w3-container">
+            <li><a ng-href="">Office Hours</a></li>
+          </div>
+
+        </div>
+
+        <div class="w3-container w3-card w3-white">
+          <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-certificate fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Module 1</h2>
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b>Chapter 1</b></h5>
+          </div>
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b>Chapter 2</b></h5>
+
+            <hr>
+          </div>
+          <div class="w3-container">
+            <h5 class="w3-opacity"><b>Chapter 3</b></h5>
+
+          </div>
+        </div>
+
+        <!-- End Right Column -->
+      </div>
+
+      <!-- End Grid -->
+    </div>
+
+    <!-- End Page Container -->
+
+
+    <footer class="w3-container w3-padding-64 w3-khaki w3-center w3-opacity">
+      <div class="w3-xlarge w3-padding-32">
+        <p><a ng-href="">About Us</a> </p>
+        <p><a ng-href="">Contact</a> </p>
+
+      </div>
+
+    </footer>
+

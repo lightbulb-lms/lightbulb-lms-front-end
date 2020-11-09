@@ -36,7 +36,8 @@ export class HomeComponent implements OnInit {
   }
 
   login(): void {
-    this.oktaAuth.loginRedirect('/profile');
+    this.oktaAuth.loginRedirect('/teacher-login');
+    
   }
 
   async logout(): Promise<void> {

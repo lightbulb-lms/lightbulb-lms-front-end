@@ -5,15 +5,30 @@
   <div class="w3-bar w3-green w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a routerLink = "/admin-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Admin Login</a>
+    <a *ngIf="!isAuthenticated" routerLink="/login" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Login
+    </a>
+    <!-- <app-student-home-page *ngIf="isStudent"></app-student-home-page>
+    <app-teacher-home-page *ngIf="isTeacher"></app-teacher-home-page>
+    <app-administrator-home-page *ngIf="isAdmin"></app-administrator-home-page> -->
+    <a *ngIf="isAuthenticated" (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Logout
+    </a>
+    <!-- <a routerLink = "/admin-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Admin Login</a>
     <a routerLink = "/teacher-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Teacher Login</a>
-    <a routerLink="/student-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Student Login</a>
+    <a routerLink="/student-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Student Login</a> -->
 
   </div>
 
 </div>
+<div *ngIf="isAuthenticated"><app-student-home-page *ngIf = "isStudent"></app-student-home-page>
+  <app-teacher-home-page *ngIf="isTeacher"></app-teacher-home-page>
+  <app-administrator-home-page *ngIf="isAdmin"></app-administrator-home-page></div>
+
+
 
 <!-- Header -->
+<div *ngIf="!isAuthenticated">
 <header class="w3-container w3-sand w3-center" style="padding:128px 16px">
   <h1 class="w3-margin w3-jumbo">Lightbulb</h1>
   <p class="w3-xlarge">Learning Management System</p>
@@ -100,7 +115,7 @@
 
   </div>
 
-</footer>
+</footer></div>
 
 <!--<script>-->
 <!--  // Used to toggle the menu on small screens when clicking on the menu button-->
