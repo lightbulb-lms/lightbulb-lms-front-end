@@ -6,10 +6,24 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./administrator-home-page.component.css']
 })
 export class AdministratorHomePageComponent implements OnInit {
+  listNumber : number;
 
-  constructor() { }
+  constructor() {
+    this.listNumber = 0;
+   }
 
   ngOnInit(): void {
   }
+   
+  onClickCourses(): void{
+    this.listNumber = 1;
+  }
+  onClickTeachers(): void{
+    this.listNumber = 2;
+  }
+  onClickStudents(): void{
+    this.listNumber = 3;
+  }
+
 
 }

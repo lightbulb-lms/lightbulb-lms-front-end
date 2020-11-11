@@ -1,1 +1,233 @@
-<p>administrator-home-page works!</p>
+<link rel="stylesheet" type="text/css" ng-href="/style.css">
+
+
+
+
+<!-- Top container -->
+<!--<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">-->
+<!--  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>-->
+<!--  <span class="w3-bar-item w3-right">Logo</span>-->
+<!--</div>-->
+<!-- <div class="w3-top w3-bar w3-green w3-card w3-left-align w3-large">
+  <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+  <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+  <a (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+    Logout
+  </a>
+</div> -->
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+
+    <div class="w3-col s8 w3-bar">
+      <span><strong>Admin</strong></span><br>
+<!--      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>-->
+<!--      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>-->
+<!--      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>-->
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Courses</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Users</a>
+<!--    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>-->
+<!--    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>-->
+<!--    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>-->
+<!--    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>-->
+<!--    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>-->
+<!--    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>-->
+<!--    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>-->
+  </div>
+</nav>
+
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<hr>
+    <!-- <div class="w3-bar w3-green">
+        <a (click)="onClickCourse()" class="active" class="w3-bar-item w3-button">Courses</a>
+        <a (click)="onClickTeacher()" class="w3-bar-item w3-button w3-hide-small">Teachers</a>
+        <a (click)="onClickStudent()" class="w3-bar-item w3-button w3-hide-small">Students</a>
+        
+        
+      </div> -->
+     
+<hr>
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-third">
+      <div class="w3-container w3-cyan w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
+        <div class="w3-right">
+          <h3>15</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <a (click)="onClickCourses()"><h4>Courses</h4></a>
+      </div>
+    </div>
+    <div class="w3-third">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+             <h3>7</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <a (click)="onClickTeachers()"><h4>Teachers</h4></a>
+      </div>
+    </div>
+    
+    <div class="w3-third">
+      <div class="w3-container w3-cyan w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+           <h3>200</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <a (click)="onClickStudents()"><h4>Students</h4></a>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <hr>
+ <div>
+   <div *ngIf="listNumber===1">
+     <h4>List of Courses</h4>
+     <table style="width:100%">
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Teacher</th>
+        <th>Semesters</th>
+      <th>Action</th>
+      </tr>
+      <tr>
+        <td>ITCS-6112</td>
+        <td>Software System Design ang Implementation</td>
+        <td>Dr. Ali Sever</td>
+        <td>Spring,Summer,Fall</td>
+      <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+      </tr>
+      <tr>
+        <td>ITCS-6166</td>
+        <td>Computer Communication and Networks</td>
+        <td>Dr. Dewan Tanwir</td>
+        <td>Spring,Fall</td>
+      <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+      </tr>
+      <tr>
+        <td>ITCS-6100</td>
+        <td>Big Data for Competitive Advantage</td>
+        <td>Dr. Gabriel Terejanu</td>
+        <td>Spring,Fall</td>
+      <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+      </tr>
+    </table>
+            
+
+   </div>
+
+   <div *ngIf="listNumber===2">
+    <h4>List of Teachers</h4>
+    <table style="width:100%">
+     <tr>
+       <th>ID</th>
+       <th>Name</th>
+       <th>Department</th>
+       <th>Email</th>
+     <th>Action</th>
+     </tr>
+     <tr>
+       <td>1233</td>
+       <td>Dr. Ali Sever</td>
+       <td>Computer Science</td>
+       <td>asever@gmail.com</td>
+     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     </tr>
+     <tr>
+       <td>6889</td>
+       <td>Dr. Dewan Tanwir</td>
+       <td>Computer Science</td>
+       <td>dtanwir@gmail.com</td>
+     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     </tr>
+     <tr>
+       <td>5678</td>
+       <td>Dr. Gabriel Terejanu</td>
+       <td>Computer Science</td>
+       <td>gterejanu@gmail.com</td>
+     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     </tr>
+   </table>
+           
+
+  </div>
+
+  <div *ngIf="listNumber===3">
+    <h4>List of Students</h4>
+    <table style="width:100%">
+     <tr>
+       <th>ID</th>
+       <th>Name</th>
+       <th>Major</th>
+       <th>Email</th>
+     <th>Action</th>
+     </tr>
+     <tr>
+       <td>768798090</td>
+       <td>Pooja Singh</td>
+       <td>Computer Science</td>
+       <td>psingh@gmail.com</td>
+     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     </tr>
+     <tr>
+       <td>5679890</td>
+       <td>Chris Nellis</td>
+       <td>Computer Science</td>
+       <td>cnellis@gmail.com</td>
+     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     </tr>
+     <tr>
+       <td>5687987</td>
+       <td>Russel Childers</td>
+       <td>Computer Science</td>
+       <td>rchilders@gmail.com</td>
+     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     </tr>
+     <tr>
+      <td>6990456</td>
+      <td>Manissha Malapati</td>
+      <td>Computer Science</td>
+      <td>mmalapati@gmail.com</td>
+    <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+    </tr>
+   </table>
+           
+
+  </div>
+
+ </div>
+
+<hr>
+  <hr>
+  <footer class="w3-center">
+    <ul>
+      <li><a href="about.jsp">About</a></li>
+      <li><a href="contact.jsp">Contact</a></li>
+	  </ul>
+
+  </footer>
+
+
+</div>
+
