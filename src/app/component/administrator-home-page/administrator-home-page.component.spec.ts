@@ -1,6 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { AdministratorHomePageComponent } from './administrator-home-page.component';
+import {AdministratorHomePageComponent} from './administrator-home-page.component';
+import {HttpClientModule} from '@angular/common/http';
 
 describe('AdministratorHomePageComponent', () => {
   let component: AdministratorHomePageComponent;
@@ -17,9 +18,5 @@ describe('AdministratorHomePageComponent', () => {
     fixture = TestBed.createComponent(AdministratorHomePageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
   });
 });
