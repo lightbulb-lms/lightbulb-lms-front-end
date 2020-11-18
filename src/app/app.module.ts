@@ -11,11 +11,13 @@ import {ProtectedComponent} from './component/protected/protected.component';
 import {LoginComponent} from './component/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 
-import { HomeComponent } from './component/home/home.component';
-import { StudentHomePageComponent } from './component/student-home-page/student-home-page.component';
-import { TeacherHomePageComponent } from './component/teacher-home-page/teacher-home-page.component';
+import {HomeComponent} from './component/home/home.component';
+import {StudentHomePageComponent} from './component/student-home-page/student-home-page.component';
+import {TeacherHomePageComponent} from './component/teacher-home-page/teacher-home-page.component';
 import {AdministratorHomePageComponent} from './component/administrator-home-page/administrator-home-page.component';
-import { StudentCourseHomeComponent } from './component/student-course-home/student-course-home.component';
+import {StudentCourseHomeComponent} from './component/student-course-home/student-course-home.component';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {Interceptor} from './service/interceptor';
 
 
 // Define config parameters for Okta
@@ -44,10 +46,12 @@ const config: OktaConfig = {
   imports: [
     AppRoutingModule,
     BrowserModule,
+    HttpClientModule,
     OktaAuthModule
   ],
   providers: [
     {provide: OKTA_CONFIG, useValue: config},
+    {provide: HTTP_INTERCEPTORS, useClass: Interceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

@@ -57,10 +57,13 @@
         <a (click)="onClickCourse()" class="active" class="w3-bar-item w3-button">Courses</a>
         <a (click)="onClickTeacher()" class="w3-bar-item w3-button w3-hide-small">Teachers</a>
         <a (click)="onClickStudent()" class="w3-bar-item w3-button w3-hide-small">Students</a>
-        
-        
+
+
       </div> -->
-     
+
+<!--Test getting data from service-->
+  <h1 *ngIf="lastNameOfFirstTeacher">The last name of the first teacher in the list is: {{lastNameOfFirstTeacher}}</h1>
+
 <hr>
   <div class="w3-row-padding w3-margin-bottom">
     <div class="w3-third">
@@ -83,7 +86,7 @@
         <a (click)="onClickTeachers()"><h4>Teachers</h4></a>
       </div>
     </div>
-    
+
     <div class="w3-third">
       <div class="w3-container w3-cyan w3-padding-16">
         <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
@@ -133,7 +136,7 @@
       <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
       </tr>
     </table>
-            
+
 
    </div>
 
@@ -169,7 +172,7 @@
      <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
      </tr>
    </table>
-           
+
 
   </div>
 
@@ -212,7 +215,7 @@
     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
     </tr>
    </table>
-           
+
 
   </div>
 
