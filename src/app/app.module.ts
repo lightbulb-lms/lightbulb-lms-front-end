@@ -18,6 +18,8 @@ import {AdministratorHomePageComponent} from './component/administrator-home-pag
 import {StudentCourseHomeComponent} from './component/student-course-home/student-course-home.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {Interceptor} from './service/interceptor';
+import { TeacherCoursePageComponent } from './component/teacher-course-page/teacher-course-page.component';
+import { AdminCourseManagementComponent } from './component/admin-course-management/admin-course-management.component';
 
 
 // Define config parameters for Okta
@@ -39,6 +41,8 @@ const config: OktaConfig = {
     TeacherHomePageComponent,
     AdministratorHomePageComponent,
     StudentCourseHomeComponent,
+    TeacherCoursePageComponent,
+    AdminCourseManagementComponent,
     /*
     NavigationComponent
     */

@@ -109,7 +109,6 @@ article {
   margin-top: 5px;
   padding: 10px 15px;
 }
-
 main {
   width: 640px;
   float: left;
@@ -134,10 +133,14 @@ aside {
   font-variant: small-caps;
   text-transform: none;
 }
-
-/*w3-container {*/
-/*  clear: both;*/
-/*  background-color: w3-teal;*/
-/*  color: white;*/
-/*  padding: 5px 20px;*/
-/*}*/
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  clear: both;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 20px;
+  list-style-position: inside;
+  
+}

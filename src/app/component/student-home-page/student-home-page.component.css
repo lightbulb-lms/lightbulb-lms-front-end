@@ -5,3 +5,18 @@ a.fill-div {
   width: 100%;
   text-decoration: none;
 }
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  clear: both;
+  background-color: #4CAF50;
+  color: white;
+  padding: 5px 20px;
+  list-style-position: inside;
+  
+}
+#mySidebar
+  {
+    box-shadow: 10px 10px 5px grey;
+  }
