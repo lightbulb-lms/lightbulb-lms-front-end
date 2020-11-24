@@ -1,10 +1,30 @@
 <link rel="stylesheet" type="text/css" ng-href="/style.css">
 <!-- Sidebar/menu -->
+<div class="w3-top">
+  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    <a routerLink="/login" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Login
+    </a>
+    <!-- <app-student-home-page *ngIf="isStudent"></app-student-home-page>
+    <app-teacher-home-page *ngIf="isTeacher"></app-teacher-home-page>
+    <app-administrator-home-page *ngIf="isAdmin"></app-administrator-home-page> -->
+    <a (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Logout
+    </a>
+    <!-- <a routerLink = "/admin-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Admin Login</a>
+    <a routerLink = "/teacher-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Teacher Login</a>
+    <a routerLink="/student-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Student Login</a> -->
+
+  </div>
+
+</div>
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
 
     <div class="w3-col s8 w3-bar">
-      <span><strong>Norm</strong></span><br>
+      <span><strong>{{user}}</strong></span><br>
 
     </div>
   </div>
@@ -18,14 +38,42 @@
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Courses</a>
 
   </div>
+
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay">
 </div>
-    <footer class="w3-center">
+<div class="w3-main" style="margin-left:300px;margin-top:43px;" id = mainList>
+  <ul>
+      <li><a>Add content</a></li>
+      <li><a>Delete content</a></li>
+      <li><a>Modify content</a></li>
+    </ul>
+</div>
+<div class="w3-main" style="margin-left:350px;margin-top:43px;">
+  
+    <table>
+      <tr>
+        <th>Content Id </th>
+        <th>Creation Time</th>
+        <th>Last Updated</th>
+        <th>Content</th>
+      </tr>
+      
+        <tr *ngFor= "let list of listOfContents">
+          <td>{{list.contentId}}</td>
+          <td>{{list.creationTime}}</td>
+          <td>{{list.lastUpdatedTime}}</td>
+          <td>{{list.content}}</td>
+        </tr>
+      
+    </table>
+  
+</div>
+<footer class="w3-center">
     <ul>
       <li><a href="about.jsp">About</a></li>
       <li><a href="contact.jsp">Contact</a></li>
 	  </ul>
 
-  </footer>
+</footer>

@@ -8,16 +8,11 @@
     <a *ngIf="!isAuthenticated" routerLink="/login" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
               Login
     </a>
-    <!-- <app-student-home-page *ngIf="isStudent"></app-student-home-page>
-    <app-teacher-home-page *ngIf="isTeacher"></app-teacher-home-page>
-    <app-administrator-home-page *ngIf="isAdmin"></app-administrator-home-page> -->
+ 
     <a *ngIf="isAuthenticated" (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
               Logout
     </a>
-    <!-- <a routerLink = "/admin-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Admin Login</a>
-    <a routerLink = "/teacher-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Teacher Login</a>
-    <a routerLink="/student-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Student Login</a> -->
-
+   
   </div>
 
 </div>

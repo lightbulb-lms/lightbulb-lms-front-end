@@ -54,7 +54,7 @@ const routes: Routes = [
     component: StudentCourseHomeComponent
   },
   {
-    path: 'teacher-course',
+    path: 'teacher-course/:id/:user',
     canActivate: [OktaAuthGuard],
     component: TeacherCoursePageComponent
   },

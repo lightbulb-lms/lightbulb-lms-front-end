@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
+import {OktaAuthService} from '@okta/okta-angular';
 
 @Component({
   selector: 'app-administrator-home-page',
@@ -12,22 +13,31 @@ export class AdministratorHomePageComponent implements OnInit {
   listOfCourses: string;
   listOfTeachers: string;
   listOfStudents: string;
+  user: string;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,oktaAuthService: OktaAuthService) {
     this.listNumber = 0;
+    oktaAuthService.getUser().then(
+      claims => {
+       this.user = claims.name;
+      }
+    );
   }
 
+  
   ngOnInit(): void {
     // an example call that returns users
     // in the data extraction layer, we pull back the first teacher in the list's last name to display
     // this.http.get(environment.hostURL + '/courses')
     //   .subscribe(data => console.log(JSON.stringify(data)));
+    
       this.http.get(environment.hostURL + '/courses')
       .subscribe(data => this.listOfCourses= data['courses']);
     this.http.get(environment.hostURL + '/users')
       .subscribe(data =>{
         this.listOfTeachers = data['teacherUsers'];
         this.listOfStudents = data['studentUsers'];
+        
       }  );
   
   }
