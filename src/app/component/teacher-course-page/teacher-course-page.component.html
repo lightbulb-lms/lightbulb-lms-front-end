@@ -4,11 +4,11 @@
   <div class="w3-bar w3-green w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    
+
     <a (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
               Logout
     </a>
-   
+
   </div>
 
 </div>
@@ -43,7 +43,7 @@
     </ul>
 </div>
 <div *ngIf="action===0" class="w3-main" style="margin-left:350px;margin-top:43px;">
-  
+
     <table>
       <tr>
         <th>Content Id </th>
@@ -51,21 +51,20 @@
         <th>Last Updated</th>
         <th>Content</th>
       </tr>
-      
+
         <tr *ngFor= "let list of listOfContents">
           <td>{{list.contentId}}</td>
           <td>{{list.creationTime}}</td>
           <td>{{list.lastUpdatedTime}}</td>
           <td [innerHTML]="list.content"></td>
         </tr>
-      
+
     </table>
-  
+
 </div>
 <div *ngIf="action===1" class="w3-main" style="margin-left:350px;margin-top:43px;">
   <form (ngSubmit)="addContent()">
-   <h3>Enter Content:  </h3><textarea  cols=100 rows=10 formControlName = "content" placeholder = "content" ng-model="newContent"></textarea>
-   {{newContent}}
+    <h3>Enter Content:  </h3><textarea cols=100 rows=10 name="newContentElement" [(ngModel)]="newContent" placeholder = "content"></textarea>
    <br/>
    <br/>
    <input type = "submit" value = "ADD">

@@ -20,6 +20,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {Interceptor} from './service/interceptor';
 import { TeacherCoursePageComponent } from './component/teacher-course-page/teacher-course-page.component';
 import { AdminCourseManagementComponent } from './component/admin-course-management/admin-course-management.component';
+import {FormsModule} from '@angular/forms';
 
 
 // Define config parameters for Okta
@@ -51,7 +52,8 @@ const config: OktaConfig = {
     AppRoutingModule,
     BrowserModule,
     HttpClientModule,
-    OktaAuthModule
+    OktaAuthModule,
+    FormsModule
   ],
   providers: [
     {provide: OKTA_CONFIG, useValue: config},
