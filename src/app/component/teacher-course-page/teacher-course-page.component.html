@@ -4,19 +4,11 @@
   <div class="w3-bar w3-green w3-card w3-left-align w3-large">
     <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
     <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <a routerLink="/login" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
-              Login
-    </a>
-    <!-- <app-student-home-page *ngIf="isStudent"></app-student-home-page>
-    <app-teacher-home-page *ngIf="isTeacher"></app-teacher-home-page>
-    <app-administrator-home-page *ngIf="isAdmin"></app-administrator-home-page> -->
+    
     <a (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
               Logout
     </a>
-    <!-- <a routerLink = "/admin-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Admin Login</a>
-    <a routerLink = "/teacher-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Teacher Login</a>
-    <a routerLink="/student-login" routerLinkActive ="active" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Student Login</a> -->
-
+   
   </div>
 
 </div>
@@ -45,12 +37,12 @@
 </div>
 <div class="w3-main" style="margin-left:300px;margin-top:43px;" id = mainList>
   <ul>
-      <li><a>Add content</a></li>
+      <li><a (click)="onClickAddContent()">Add content</a></li>
       <li><a>Delete content</a></li>
       <li><a>Modify content</a></li>
     </ul>
 </div>
-<div class="w3-main" style="margin-left:350px;margin-top:43px;">
+<div *ngIf="action===0" class="w3-main" style="margin-left:350px;margin-top:43px;">
   
     <table>
       <tr>
@@ -64,11 +56,20 @@
           <td>{{list.contentId}}</td>
           <td>{{list.creationTime}}</td>
           <td>{{list.lastUpdatedTime}}</td>
-          <td>{{list.content}}</td>
+          <td [innerHTML]="list.content"></td>
         </tr>
       
     </table>
   
+</div>
+<div *ngIf="action===1" class="w3-main" style="margin-left:350px;margin-top:43px;">
+  <form (ngSubmit)="addContent()">
+   <h3>Enter Content:  </h3><textarea  cols=100 rows=10 formControlName = "content" placeholder = "content" ng-model="newContent"></textarea>
+   {{newContent}}
+   <br/>
+   <br/>
+   <input type = "submit" value = "ADD">
+  </form>
 </div>
 <footer class="w3-center">
     <ul>

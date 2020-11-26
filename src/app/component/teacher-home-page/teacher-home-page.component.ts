@@ -3,7 +3,6 @@ import {OktaAuthService} from "@okta/okta-angular";
 import {Router} from "@angular/router";
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
-// import { NgxNavigationWithDataComponent } from 'ngx-navigation-with-data';
 
 @Component({
   selector: 'app-teacher-home-page',
@@ -23,15 +22,6 @@ export class TeacherHomePageComponent implements OnInit {
       (isAuthenticated: boolean) => this.isAuthenticated = isAuthenticated
     );
 
-    // this.oktaAuth.getUser().then(claims => {
-    //   if (claims.isAdmin) {
-    //     this.isAdmin = true;
-    //   } else if (claims.isStudent) {
-    //     this.isStudent = true;
-    //   } else if (claims.isTeacher) {
-    //     this.isTeacher = true;
-    //   }
-    // });
 
     oktaAuth.getUser().then(
       claims => {
@@ -46,8 +36,8 @@ export class TeacherHomePageComponent implements OnInit {
     this.isAuthenticated = await this.oktaAuth.isAuthenticated();
     this.http.get(environment.hostURL + '/assigned-courses')
       .subscribe(data => this.listOfAssignedCourses = data['courses']);
-      this.http.get(environment.hostURL + '/assigned-courses')
-      .subscribe(data => console.log(JSON.stringify(data)));
+      // this.http.get(environment.hostURL + '/assigned-courses')
+      // .subscribe(data => console.log(JSON.stringify(data)));
   }
 
 
@@ -57,9 +47,6 @@ export class TeacherHomePageComponent implements OnInit {
     await this.oktaAuth.logout();
     this.router.navigateByUrl('/');
   }
-  navigateToCourse(id) {
-    // this.courseId = id;
-    // this.navCtrl.navigate('/teacher-course', {id:id});
-   }
+
 
 }
