@@ -1,0 +1,31 @@
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+header{
+  background: url("../../../assets/images/image4.jfif");
+  
+}
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  clear: both;
+  background-color: #1f6d66f3;
+  color: white;
+  padding: 5px 20px;
+  list-style-position: inside;
+  
+}
+table, th, td {
+  border: 1px solid black;
+}
+li{
+  float:left;
+}
+#mySidebar
+  {
+    box-shadow: 5px 10px 5px grey;
+    padding-left: 0px;
+  }
+#lists{
+  padding-left: 25px;
+  padding-right: 10px;
+}

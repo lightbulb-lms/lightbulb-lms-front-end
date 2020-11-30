@@ -1,0 +1,167 @@
+<link rel="stylesheet" type="text/css" ng-href="/style.css">
+
+
+<header class="w3-container w3-sand w3-center" style="padding:10px 16px" >
+  <h1 class="w3-margin"><strong>Lightbulb</strong></h1>  
+</header>
+  <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
+    
+    <a (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Logout
+    </a>
+   
+  </div>
+
+
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+
+    <div class="w3-col s8 w3-bar">
+      <span><strong>{{user}}</strong></span><br>
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+  </div>
+  <div class="w3-bar-block">
+    <a  class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a routerLink = "/admin-login" routerLinkActive= "active" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+    <a [routerLink] = "['/admin-course-management',user]" routerLinkActive="active" routerLinkActive = "active"  class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Courses</a>
+    <a [routerLink] = "['/admin-user-management',user]" routerLinkActive="active" routerLinkActive = "active" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Users</a>
+  </div>
+</nav>
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay">
+</div>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<hr>
+<hr>
+  <div class="w3-row-padding w3-margin-bottom">
+    <div class="w3-third">
+      <div class="w3-container w3-cyan w3-padding-16">
+        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i>
+        </div>
+        <div class="w3-right">
+          <h3>{{listOfCourses?.length}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <a (click)="onClickCourses()"><h4>Courses</h4></a>
+      </div>
+    </div>
+    
+    <div class="w3-third">
+      <div class="w3-container w3-teal w3-padding-16">
+        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
+        <div class="w3-right">
+             <h3>{{listOfTeachers?.length}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <a (click)="onClickTeachers()"><h4>Teachers</h4></a>
+      </div>
+    </div>
+
+    <div class="w3-third">
+      <div class="w3-container w3-cyan w3-padding-16">
+        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
+        <div class="w3-right">
+           <h3>{{listOfStudents?.length}}</h3>
+        </div>
+        <div class="w3-clear"></div>
+        <a (click)="onClickStudents()"><h4>Students</h4></a>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+ <div id="lists">
+   <div *ngIf="listNumber===1">
+     <div *ngIf="listOfCourses!=null; then courses else noCourses"></div>
+     <ng-template #courses>
+     <h4>List of Courses</h4>
+     <table style="width:100%">
+      <tr>
+        <th>ID</th>
+        <th>Course code</th>
+        <th>Course Name</th>
+        <th>Description</th>
+      <th>Action</th>
+      </tr>
+      <tr *ngFor="let list of listOfCourses">
+        <td>{{list.id}}</td>
+        <td>{{list.courseCode}}</td>
+        <td>{{list.courseTitle}}</td>
+        <td>{{list.courseDescription}}</td>
+      <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+      </tr>
+    </table>
+    
+  </ng-template>
+    <ng-template #noCourses>
+      <h4>No Courses!</h4>
+    </ng-template>
+   </div>
+
+   <div *ngIf="listNumber===2">
+    <div *ngIf="listOfTeachers!=null; then teachers else noTeachers"></div>
+    <ng-template #teachers>
+    <h4> List of Teachers</h4>
+    <table style="width:100%">
+     <tr>
+       <th>ID</th>
+       <th>Name</th>
+       <th>Email</th>
+     <th>Action</th>
+     </tr>
+     <tr *ngFor="let list of listOfTeachers">
+       <td>{{list.userID}}</td>
+       <td>{{list.firstName}} {{list.lastName}}</td>
+       <td>{{list.emailAddress}}</td>
+     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     </tr>
+     
+   </table>
+  </ng-template>
+  <ng-template #noTeachers>
+    <h4>No Teachers!</h4>
+  </ng-template>
+  </div>
+  <div *ngIf="listNumber===3">
+    <div *ngIf="listOfStudents!=null; then students else noStudents"></div>
+    <ng-template #students>
+    <h4>List of Students</h4>
+    <table style="width:100%">
+     <tr>
+       <th>ID</th>
+       <th>Name</th>
+       <th>Email</th>
+       
+     </tr>
+     <tr  *ngFor="let list of listOfStudents">
+       <td>{{list.userID}}</td>
+       <td>{{list.firstName}} {{list.lastName}}</td>
+       <td>{{list.emailAddress}}</td>
+     
+     </tr>
+    </table>
+  </ng-template>
+  <ng-template #noStudents>
+    <h4>No Students!</h4>
+  </ng-template>
+  </div>
+ </div>
+<hr>
+  <hr>
+  <footer class="w3-center">
+    <ul>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <br/>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+	  </ul>
+
+  </footer>
+</div>
+

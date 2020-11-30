@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "lightbulb-lms-front-end"
+    }
+  },
+  "defaultProject": "lightbulb-lms-front-end",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,29 @@
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+header{
+  background: url("../../../assets/images/image4.jfif");
+  
+}
+a.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+}
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  clear: both;
+  background-color: #1f6d66f3;
+  color: white;
+  padding: 5px 20px;
+  list-style-position: inside;
+  
+}
+li{
+  float:left;
+}
+#mySidebar
+  {
+    box-shadow: 10px 10px 5px grey;
+  }

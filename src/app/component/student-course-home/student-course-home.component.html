@@ -1,0 +1,61 @@
+<link rel="stylesheet" type="text/css" ng-href="/style.css">
+<header class="w3-container w3-sand w3-center" style="padding:10px 16px">
+  <h1 class="w3-margin"><strong>Lightbulb</strong></h1>  
+</header>
+  <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
+
+    <a (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Logout
+    </a>
+   
+  </div>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+
+    <div class="w3-col s8 w3-bar">
+      <span><strong>{{user}}</strong></span><br>
+
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+
+  </div>
+  <div class="w3-bar-block">
+    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Courses</a>
+
+  </div>
+</nav>
+
+<div class="w3-main" style="margin-left:350px;margin-top:43px;margin-bottom: 600px;">
+  <div>
+    <tr>
+      <th>
+        Content ID
+      </th>
+      <th>Creation Time</th>
+      <th>Last Updated</th>
+      <th>Content</th>
+    </tr>
+    <tr *ngFor="let list of listOfContents">
+      <td>{{list.contentId}}</td>
+      <td>{{list.creationTime}}</td>
+      <td>{{list.lastUpdatedTime}}</td>
+      <td [innerHTML]="list.content"></td>
+    </tr>
+  </div>
+
+  
+<footer class="w3-center">
+    <ul>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <br/>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+	  </ul>
+</footer>
+

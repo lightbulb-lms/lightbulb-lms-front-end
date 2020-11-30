@@ -18,8 +18,9 @@ export class ProtectedComponent {
           this.message = 'You are a student!';
         } else if (claims.isTeacher) {
           this.message = 'You are a teacher!';
-        }
-      }
+        };
+       }
     );
+    
   }
 }

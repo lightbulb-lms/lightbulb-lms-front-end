@@ -1,0 +1,43 @@
+<link rel="stylesheet" type="text/css" href="/style.css">
+
+<header class="w3-container w3-sand w3-center" style="padding:10px 16px">
+    <h1 class="w3-margin"><strong>Lightbulb</strong></h1>  
+  </header>
+<!-- <div class="w3-top"> -->
+  <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
+    <a *ngIf="!isAuthenticated" routerLink="/login" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Login
+    </a>
+ 
+    <a *ngIf="isAuthenticated" (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Logout
+    </a>
+   
+  </div>
+<!-- </div> -->
+  <div class="w3-main w3-row-padding w3-padding-64 w3-container">
+    <div >
+        <h3>For help or feedback contact:</h3>
+        
+        <strong>Chris Nellis: </strong>
+        <u>cnellis2@uncc.edu</u>
+        <br/>
+        <strong>Russel Childers: </strong>
+        <u>rchild10@uncc.edu</u>
+        <br/>
+        <strong>Manissha Malapati: </strong>
+        <u>mmalapat@uncc.edu</u>
+        <br/>
+        <strong>Pooja Singh: </strong>
+        <u>psingh22@uncc.edu</u>
+  </div>
+  <footer class="w3-center w3-bottom" >
+    <ul>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <br/>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+    </ul>
+  
+  </footer>

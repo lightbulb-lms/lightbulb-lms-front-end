@@ -1,0 +1,139 @@
+<link rel="stylesheet" type="text/css" ng-href="/style.css">
+
+<header class="w3-container w3-sand w3-center" style="padding:10px 16px">
+  <h1 class="w3-margin"><strong>Lightbulb</strong></h1>  
+</header>
+  <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
+    
+    <a (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
+              Logout
+    </a>
+   
+  </div>
+
+
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container w3-row">
+
+    <div class="w3-col s8 w3-bar">
+      <span><strong>{{user}}</strong></span><br>
+
+    </div>
+  </div>
+  <hr>
+  <div class="w3-container">
+
+  </div>
+  <div class="w3-bar-block">
+    <a [href]="" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a routerLink="/teacher-login" routerLinkActive="active" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+    <a [routerLink] = "['/teacher-course',user]" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Courses</a>
+    
+
+  </div>
+
+</nav>
+
+<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+  <div>
+    <ul  id = menu>
+      <li><a (click)="onClickAddContent()" id="menuItem">Add content</a></li>
+      <li><a (click)="onClickDeleteContent()" id="menuItem">Delete content</a></li>
+      <li><a (click)="onClickModifyContent()" id="menuItem">Modify content</a></li>
+    </ul>
+
+<div *ngIf="action===0" class="w3-main" style="margin-left:30px;margin-top:43px;">
+  
+    <table>
+      <tr>
+        <th>Content Id </th>
+        <th>Creation Time</th>
+        <th>Last Updated</th>
+        <th>Content</th>
+      </tr>
+      
+        <tr *ngFor= "let list of listOfContents">
+          <td>{{list.contentId}}</td>
+          <td>{{list.creationTime}}</td>
+          <td>{{list.lastUpdatedTime}}</td>
+          <td [innerHTML]="list.content"></td>
+        </tr>
+      
+    </table>
+  
+</div>
+<div *ngIf="action===1" class="w3-main" style="margin-left:30px;margin-top:43px;">
+  <form (ngSubmit)="addContent()">
+    <h3>Enter Content:  </h3><textarea cols=100 rows=10 name="newContentElement" [(ngModel)]="newContent" placeholder = "some content here...." required></textarea>
+   
+   <br/>
+   <br/>
+   <input type = "submit" value = "ADD">
+  </form>
+</div>
+<div *ngIf="action===2" class="w3-main" style="margin-left:30px;margin-top:43px;">
+  <table>
+    <tr>
+      <th>Content Id </th>
+      <th>Creation Time</th>
+      <th>Last Updated</th>
+      <th>Content</th>
+      <th>Delete Content</th>
+    </tr>
+    
+      <tr *ngFor= "let list of listOfContents">
+        <td>{{list.contentId}}</td>
+        <td>{{list.creationTime}}</td>
+        <td>{{list.lastUpdatedTime}}</td>
+        <td [innerHTML]="list.content"></td>
+        <td><button (click)="deleteContent(list.contentId)">Delete</button></td>
+      </tr>
+    
+  </table>
+</div> 
+  <div *ngIf="action===3" class="w3-main" style="margin-left:30px;margin-top:43px;">
+    
+    <table>
+      <tr>
+        <th>Content Id </th>
+        <th>Creation Time</th>
+        <th>Last Updated</th>
+        <th>Content</th>
+        <th>Edit Content</th>
+      </tr>
+      
+        <tr *ngFor= "let list of listOfContents">
+          <td>{{list.contentId}}</td>
+          <td>{{list.creationTime}}</td>
+          <td>{{list.lastUpdatedTime}}</td>
+          <td [innerHTML]="list.content"></td>
+          <td><button (click)="gotoEditContent(list.contentId,list.content)">Edit</button></td>
+        </tr>
+      
+    </table>
+
+  </div>
+  <div *ngIf="action===4" class="w3-main" style="margin-left:30px;margin-top:43px;">
+    <form (ngSubmit)="modifyContent(contentIdForEdit)">
+      <h3>Enter New Content:  </h3><textarea cols=100 rows=10 name="modifiedContent" [(ngModel)]="newContent" placeholder = "new content here...." required></textarea>
+     
+     <br/>
+     <br/>
+     <input type = "submit" value = "UPDATE">
+    </form>
+  </div>
+
+  </div>
+  
+
+<footer class="w3-center">
+    <ul>
+      <li><a routerLink='/about' routerLinkActive="active">About</a></li>
+      <br/>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
+	  </ul>
+
+</footer>
+</div>

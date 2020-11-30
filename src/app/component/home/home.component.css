@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+article, aside, footer, header, main, nav, section {
+  display: block;
+}
+
+html, body, h1, h2, h3, ul, li, a, p,
+article, aside, footer, header, main, nav, section {
+  padding:0;
+  margin: 0;
+}
+
+
+
+nav {
+  background-color: #7C7A9D;
+  padding: 5px;
+  margin-top: 1px;
+
+}
+
+
+header{
+  background: url("../../../assets/images/image5.jfif");
+  position: relative;
+  
+}
+
+footer{
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  clear: both;
+  background-color: #1f6d66f3;
+  color: white;
+  padding: 5px 20px;
+  list-style-position: inside;
+  
+}
+  li {
+    float: left;
+  }
+  
