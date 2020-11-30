@@ -1,43 +1,44 @@
 html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+header{
+  background: url("../../../assets/images/image4.jfif");
+  
+}
 footer{
     width: 100%;
     position: absolute;
     bottom: 0;
     clear: both;
-    background-color: #4CAF50;
+    background-color:#1f6d66f3;
     color: white;
     padding: 5px 20px;
     list-style-position: inside;
     
   }
-  #mySidebar
+#mySidebar
   {
     box-shadow: 10px 10px 5px grey;
   }
-  #mainList
-{
-   padding-left: 30px;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #4CAF50;
-}
+#menu {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1f6d66f3;
+  }
+
 
 li {
   float: left;
 }
 
-li a {
+
+#menuItem {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-
 li a:hover {
   background-color: #111;
 }

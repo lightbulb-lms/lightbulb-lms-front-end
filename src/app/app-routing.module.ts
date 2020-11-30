@@ -10,6 +10,9 @@ import {AdministratorHomePageComponent} from "./component/administrator-home-pag
 import {StudentCourseHomeComponent} from "./component/student-course-home/student-course-home.component";
 import { TeacherCoursePageComponent } from './component/teacher-course-page/teacher-course-page.component';
 import { AdminCourseManagementComponent } from './component/admin-course-management/admin-course-management.component';
+import { AdminUserManagementComponent } from './component/admin-user-management/admin-user-management.component';
+import { AboutComponent } from './component/about/about.component';
+import { ContactComponent } from './component/contact/contact.component';
 
 
 const routes: Routes = [
@@ -49,7 +52,7 @@ const routes: Routes = [
     component: AdministratorHomePageComponent
   },
   {
-    path: 'student-course-home',
+    path: 'student-course-home/:id/:user',
     canActivate: [OktaAuthGuard],
     component: StudentCourseHomeComponent
   },
@@ -59,9 +62,22 @@ const routes: Routes = [
     component: TeacherCoursePageComponent
   },
   {
-    path: 'admin-course-management',
+    path: 'admin-course-management/:user',
     canActivate:[OktaAuthGuard],
     component: AdminCourseManagementComponent
+  },
+  {
+    path:'admin-user-management/:user',
+    canActivate:[OktaAuthGuard],
+    component:AdminUserManagementComponent
+  },
+  {
+    path:'about',
+    component:AboutComponent
+  },
+  {
+    path:'contact',
+    component:ContactComponent
   }
 ];
 

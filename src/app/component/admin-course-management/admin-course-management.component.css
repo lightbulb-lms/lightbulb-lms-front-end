@@ -1,40 +1,46 @@
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-footer{
-  width: 100%;
-  position: absolute;
-  bottom: 0;
-  clear: both;
-  background-color: #4CAF50;
-  color: white;
-  padding: 5px 20px;
-  list-style-position: inside;
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+header{
+  background: url("../../../assets/images/image4.jfif");
   
 }
-table, th, td {
-  border: 1px solid black;
-}
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    clear: both;
+    background-color:#1f6d66f3;
+    color: white;
+    padding: 5px 20px;
+    list-style-position: inside;
+    
+  }
 #mySidebar
   {
-    box-shadow: 5px 10px 5px grey;
-    padding-left: 0px;
+    box-shadow: 10px 10px 5px grey;
   }
-#mainList
+/* #mainList
 {
    padding-left: 30px;
-}
-ul {
+} */
+#menu {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #4CAF50;
+  background-color: #1f6d66f3;
+}
+#listOfCources
+{
+  list-style-type: none;
+ 
+  
 }
 
 li {
   float: left;
 }
 
-li a {
+#menuItem {
   display: block;
   color: white;
   text-align: center;
@@ -42,6 +48,9 @@ li a {
   text-decoration: none;
 }
 
-li a:hover {
+#menuItem:hover {
   background-color: #111;
+}
+table, th, td {
+  border: 1px solid black;
 }

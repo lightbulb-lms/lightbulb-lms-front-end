@@ -21,6 +21,10 @@ import {Interceptor} from './service/interceptor';
 import { TeacherCoursePageComponent } from './component/teacher-course-page/teacher-course-page.component';
 import { AdminCourseManagementComponent } from './component/admin-course-management/admin-course-management.component';
 import {FormsModule} from '@angular/forms';
+import { AdminUserManagementComponent } from './component/admin-user-management/admin-user-management.component';
+import { AboutComponent } from './component/about/about.component';
+import { ContactComponent } from './component/contact/contact.component';
+
 
 
 // Define config parameters for Okta
@@ -44,6 +48,9 @@ const config: OktaConfig = {
     StudentCourseHomeComponent,
     TeacherCoursePageComponent,
     AdminCourseManagementComponent,
+    AdminUserManagementComponent,
+    AboutComponent,
+    ContactComponent,
     /*
     NavigationComponent
     */

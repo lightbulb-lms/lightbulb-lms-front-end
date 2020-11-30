@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {OktaAuthService} from '@okta/okta-angular';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-administrator-home-page',
@@ -15,7 +16,7 @@ export class AdministratorHomePageComponent implements OnInit {
   listOfStudents: string;
   user: string;
 
-  constructor(private http: HttpClient,oktaAuthService: OktaAuthService) {
+  constructor(private http: HttpClient,private oktaAuthService: OktaAuthService, public router: Router) {
     this.listNumber = 0;
     oktaAuthService.getUser().then(
       claims => {
@@ -53,6 +54,12 @@ export class AdministratorHomePageComponent implements OnInit {
   onClickStudents(): void {
     this.listNumber = 3;
   }
+  async logout(): Promise<void> {
+    // Terminates the session with Okta and removes current tokens.
+    await this.oktaAuthService.logout();
+    this.router.navigateByUrl('/');
+  }
+ 
 
 
 }

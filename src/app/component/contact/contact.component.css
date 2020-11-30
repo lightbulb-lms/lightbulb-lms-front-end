@@ -1,0 +1,14 @@
+header{
+    background: url("../../../assets/images/image4.jfif");
+    
+  }
+  
+    footer {
+      text-align: center;
+      padding: 3px;
+      background-color:#1f6d66f3;
+      color: white;
+    }
+    li{
+      float:left;
+    }

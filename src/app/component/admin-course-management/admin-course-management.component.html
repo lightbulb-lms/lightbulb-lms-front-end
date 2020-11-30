@@ -1,49 +1,182 @@
 <link rel="stylesheet" type="text/css" ng-href="/style.css">
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-green w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
 
+<header class="w3-container w3-sand w3-center" style="padding:10px 16px">
+  <h1 class="w3-margin"><strong>Lightbulb</strong></h1>  
+</header>
+  <div class="w3-bar w3-teal w3-card w3-left-align w3-large">
+    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a routerLink = "" class="w3-bar-item w3-button w3-padding-large w3-hover-white">Home</a>
+    
     <a (click)="logout()"  class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">
               Logout
     </a>
    
   </div>
-<!-- Sidebar/menu -->
+
+
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
 
     <div class="w3-col s8 w3-bar">
-      <span><strong>Admin</strong></span><br>
+      <span><strong>{{user}}</strong></span><br>
+
     </div>
   </div>
   <hr>
   <div class="w3-container">
+
   </div>
   <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Dashboard</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Courses</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Users</a>
+    <a [href]="" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
+    <a routerLink="/admin-login" routerLinkActive="active" class="w3-bar-item w3-button w3-padding "><i class="fa fa-users fa-fw"></i>  Dashboard</a>
+    <a [routerLink] = "['/admin-course-management',user]" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Courses</a>
+    <a [routerLink] = "['/admin-user-management',user]" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Users</a>
+
   </div>
+
 </nav>
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay">
 </div>
-<div class="w3-main" style="margin-left:300px;margin-top:43px;" id = mainList>
-    <ul>
-        <li><a>Add a Course</a></li>
-        <li><a>Delete a Course</a></li>
-        <li><a>Modify a Course</a></li>
-      </ul>
+<div class="w3-main" style="margin-left:300px;margin-top:43px;" >
+  <div id = mainList><ul id="menu">
+    <li><a (click)="onClickCreateCourse()" id="menuItem">Create course</a></li>
+    <li><a (click)="onClickAssignUser()" id="menuItem">Assign a user to a course</a></li>
+    <li><a (click)="onClickViewMembers()" id="menuItem">View all members of a course</a></li>
+    <li><a (click)="onClickDeleteMember()" id="menuItem">Delete a member from a course</a></li>
+  </ul></div>
+  
+
+ <div *ngIf="action===0" class="w3-main" style="margin-left:30px;margin-top:43px;">
+  <h4>List of Courses: </h4>
+    <table>
+      <tr>
+        <th> Id </th>
+        <th> Code</th>
+        <th> Title</th>
+        <th> Description</th>
+      </tr>
+      
+        <tr *ngFor= "let list of listOfCourses">
+          <td>{{list.id}}</td>
+          <td>{{list.courseCode}}</td>
+          <td>{{list.courseTitle}}</td>
+          <td>{{list.courseDescription}}</td>
+        </tr>
+      
+    </table>
+  
 </div>
-  <footer class="w3-center">
+<div *ngIf="action===1" class="w3-main" style="margin-left:30px;margin-top:43px;">
+  <form (ngSubmit)="createCourse()">
+    <label>Course Code: <input type="text" name="courseCode" [(ngModel)]="code" placeholder="Course Code" required></label>
+    <br/>
+    <br/>
+    <label>Course Title:  <input type="text" name="courseTitle" [(ngModel)]="title" placeholder="Course Title" required></label>
+    <br/>
+    <br/>
+    <label>Course Description:  </label><textarea cols=50 rows=5 name="courseDescription" [(ngModel)]="description" placeholder = "some description here...." required></textarea>
+   
+   <br/>
+   <br/>
+   <input type = "submit" value = "CREATE">
+  </form>
+</div> 
+<div *ngIf="action===2" class="w3-main" style="margin-left:30px;margin-top:43px;">
+  Select Course:
+  <ul *ngFor="let list of listOfCourses" id="listOfCources">
+    <li><a *ngIf="addUser===false" (click)="onClickAddUserCourse(list.id,list.courseCode,list.courseTitle)">
+      <strong>{{list.id}}: {{list.courseCode}} - </strong>
+      <u>{{list.courseTitle}}</u>
+    </a></li>
+    <br/>
+    
+  </ul>
+
+
+</div> 
+<div *ngIf="action===3" class="w3-main" style="margin-left:30px;margin-top:43px;">
+  <strong>{{courseId}}: {{code}} - </strong>
+      {{title}}
+<form (ngSubmit)="assignUser()">
+  <input type="text" name="userId" [(ngModel)]="userId" placeholder="User Id" required>
+  <input type = "submit" value = "ADD">
+</form>
+</div>
+<div *ngIf="action===4" class="w3-main" style="margin-left:30px;margin-top:43px;">
+    Select Course:
+    <ul *ngFor="let list of listOfCourses" id="listOfCources">
+      <li><a *ngIf="addUser===false" (click)="onClickViewMembersOfCourse(list.id,list.courseCode,list.courseTitle)">
+        <strong>{{list.id}}: {{list.courseCode}} - </strong>
+        <u>{{list.courseTitle}}</u>
+      </a></li>
+      <br/>
+      
+    </ul>
+</div>
+<div *ngIf="action===5" class="w3-main" style="margin-left:30px;margin-top:43px;">
+      Members of {{code}}-{{title}} are:
+    <br/>
+    <table>
+      <tr>
+        <th>User Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Role</th>
+      </tr>
+      <tr *ngFor=" let list of listOfMembers">
+        <td>{{list.userID}}</td>
+        <td>{{list.firstName}}</td>
+        <td>{{list.lastName}}</td>
+        <td>{{list.emailAddress}}</td>
+        <td>{{list.role}}</td>
+      </tr>
+    </table>
+ 
+</div>
+  
+<div *ngIf="action===6" class="w3-main" style="margin-left:30px;margin-top:43px;">
+  Select Course:
+  <ul *ngFor="let list of listOfCourses" id="listOfCources">
+    <li><a *ngIf="addUser===false" (click)="viewMembersForDeletion(list.id)">
+      <strong>{{list.id}}: {{list.courseCode}} - </strong>
+      <u>{{list.courseTitle}}</u>
+    </a></li>
+    <br/>
+    
+  </ul>
+</div>
+<div *ngIf="action===7" class="w3-main" style="margin-left:30px;margin-top:43px;">
+
+  <table>
+    <tr>
+      <th>User Id</th>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Delete member</th>
+    </tr>
+    <tr *ngFor=" let list of listOfMembers">
+      <td>{{list.userID}}</td>
+      <td>{{list.firstName}}</td>
+      <td>{{list.lastName}}</td>
+      <td>{{list.emailAddress}}</td>
+      <td>{{list.role}}</td>
+      <td><button (click)="deleteMember(list.userID)">DELETE</button></td>
+    </tr>
+  </table>
+
+</div> 
+
+
+<footer class="w3-center">
     <ul>
-      <li><a href="about.jsp">About</a></li>
-      <li><a href="contact.jsp">Contact</a></li>
+      <li><a routerLink="/about" routerLinkActive="active">About</a></li>
+      <br/>
+      <li><a routerLink="/contact" routerLinkActive="active">Contact</a></li>
 	  </ul>
 
-  </footer>
-
-
+</footer>
+</div>

@@ -1,13 +1,7 @@
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 header{
   background: url("../../../assets/images/image4.jfif");
   
-}
-a.fill-div {
-  display: block;
-  height: 100%;
-  width: 100%;
-  text-decoration: none;
 }
 footer{
   width: 100%;
@@ -23,7 +17,15 @@ footer{
 li{
   float:left;
 }
+table, th, td {
+  border: 1px solid black;
+}
 #mySidebar
   {
-    box-shadow: 10px 10px 5px grey;
+    box-shadow: 5px 10px 5px grey;
+    padding-left: 0px;
   }
+#lists{
+  padding-left: 25px;
+  padding-right: 10px;
+}
