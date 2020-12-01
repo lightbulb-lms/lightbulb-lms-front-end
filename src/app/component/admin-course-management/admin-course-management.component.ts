@@ -33,6 +33,7 @@ export class AdminCourseManagementComponent implements OnInit
   }
 
   ngOnInit(): void {
+    
   }
   async logout(): Promise<void> {
     // Terminates the session with Okta and removes current tokens.
@@ -47,6 +48,8 @@ export class AdminCourseManagementComponent implements OnInit
   createCourse(): void
   {
     this.http.post(environment.hostURL + '/course',{"courseCode": this.code,"description": this.description,"title": this.title}).subscribe(data => console.log(JSON.stringify(data)));
+    this.http.get(environment.hostURL + '/courses')
+      .subscribe(data => this.listOfCourses= data['courses']);
     window.location.reload();
   }
 
@@ -63,7 +66,8 @@ export class AdminCourseManagementComponent implements OnInit
   }
   assignUser():void
   {
-    this.http.post(environment.hostURL + '/course/'+this.courseId+'/member',{"uId": this.userId}).subscribe(data => console.log(JSON.stringify(data)));
+    
+    this.http.post(environment.hostURL + '/course/'+this.courseId+'/member',{"userId": this.userId}).subscribe(data => console.log(JSON.stringify(data)));
     this.action = 2;
   }
 
