@@ -77,13 +77,13 @@
        <th>ID</th>
        <th>Name</th>
        <th>Email</th>
-     <th>Action</th>
+     
      </tr>
      <tr *ngFor="let list of listOfTeachers">
        <td>{{list.userID}}</td>
        <td>{{list.firstName}} {{list.lastName}}</td>
        <td>{{list.emailAddress}}</td>
-     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     
      </tr>
      
    </table>
@@ -101,13 +101,13 @@
        <th>ID</th>
        <th>Name</th>
        <th>Email</th>
-       <th>Action</th>
+       
      </tr>
      <tr  *ngFor="let list of listOfStudents">
        <td>{{list.userID}}</td>
        <td>{{list.firstName}} {{list.lastName}}</td>
        <td>{{list.emailAddress}}</td>
-     <td><form><input type="submit" value="Update"><input type="submit" value="Delete"></form>
+     
      </tr>
     </table>
   </ng-template>

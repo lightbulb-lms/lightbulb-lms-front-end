@@ -73,7 +73,7 @@ export class TeacherCoursePageComponent implements OnInit {
   }
   modifyContent(contentId:number): void
   {
-    this.http.put(environment.hostURL + '/course/'+this.courseId+'/content/'+contentId,{"content":this.newContent}).subscribe();
+    this.http.put(environment.hostURL + '/course/'+this.courseId+'/content/'+contentId,{"content":this.newContent}).subscribe(data => console.log(JSON.stringify(data)));
     window.location.reload();
   }
 
